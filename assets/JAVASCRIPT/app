@@ -1,0 +1,69 @@
+var questions = [{
+  question: "What was the setting of Aladdin?",
+  answers: ["India", "England", "Canada", "Australia"],
+  correctAnswer: "India"
+}, {
+  question: "Which of these is NOT a name of one of the Justice League Members?",
+  answers: ["Wonder Woman", "Superman", "Batman", "Deadpool"],
+  correctAnswer: "Deadpool"
+}, {
+  question: "Which group released the hit song, \"By The Way\"?",
+  answers: ["Nirvana", "Backstreet Boys", "Red Hot Chili Peppers", "No Doubt"],
+  correctAnswer: "Red Hot Chili Peppers"
+}, {
+  question: "Which Disney princess sings the song, \"How Far I'll Go\"?",
+  answers: ["Ariel", "Moana", "Mulan", "Belle"],
+  correctAnswer: "Moana"
+}, {
+  question: "What is Superman's real name?",
+  answers: ["Kal El", "Lex El", "Jor El", "Bam El"],
+  correctAnswer: "Fresh"
+}, {
+  question: "What is Bruce Wayne's butler's name?",
+  answers: ["Alfred", "Mark", "Luke", "Benson"],
+  correctAnswer: "Alfred"
+}];
+
+
+var timer;
+
+var game = {
+
+  correct: 0,
+  incorrect: 0,
+  counter: 60,
+
+var startTimer = setInterval(function() {
+        timeLeft--;
+        if (timeLeft <= 0) {
+            clearInterval(startTimer);
+            finishGame();
+           
+        }
+        $(".timer").html("You have " + timeLeft + " secounds left");
+    }, 1000);
+
+$('.start').on("click", function() {  
+
+    $(".start").css("display", "none");
+    $(".info").css("display", "inline");
+
+
+var info = $(data);
+var rightAnswer = 0;
+var wrongAnswer = 0;
+function finishGame() {
+    $(".info").css("display", "none");
+     
+    for (var i = 0; i < info.length; i++) {
+        if (info[i].checked) {    
+            if ((info[i].value) === "true") {
+                rightAnswer++; 
+
+            } else {
+                wrongAnswer++;
+            }
+        }
+    }
+
+
